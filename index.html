@@ -9,16 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2290%22>🤡</text></svg>" />
 
 <title>To do List</title>
 </head>
 <body class=" min-h-screen flex items-start justify-center relative ">
    <div style="width: 500px; height: 500px;" class="absolute overflow-hidden rounded-full bg-gradient-to-b from-blue-700 to-purple-600 top-40 right-3/4 z-0"></div>
    <div class="absolute w-72 h-72 rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 top-32 right-20 z-0"></div>
-    <section id="todo-blur" style="border-width: 1px;" class=" my-20 p-14 h-auto w-4/6 flex items-center justify-center flex-col bg-gray-100 border-1 border-solid shadow-xl rounded-md backdrop-filter backdrop-blur-xl bg-opacity-20 z-10 border-opacity-10 border-black border-solid">
+    <section id="todo-blur" style="border-width: 1px;" class=" 
+    md:my-20 sm:p-14 
+    h-screen 
+    md:w-4/6 
+    w-full 
+    flex items-center justify-center flex-col bg-gray-100 border-1 border-solid shadow-xl rounded-md backdrop-filter backdrop-blur-xl bg-opacity-20 z-10 border-opacity-10 border-black border-solid">
 
 <header class="text-4xl font-bold mb-14 text-white">
-    <h1 >My Todo List</h1>
+    <h1 class="pt-6 sm:pt-3" >My Todo List</h1>
 </header>
 
 <div class="select mb-9">
@@ -28,9 +34,9 @@
         <option value="uncompleted">uncompleted</option>
     </select>
 </div>
-<form class="h-auto " action="">
-    <input type="text" class="todo-input mb-8 border-none p-2 text-2xl w-full ">
-    <button class="todo-button mb-14 px-7 py-3 bg-blue-600 hover:bg-blue-700 hover:scale-105 transform ease-in-out duration-150 text-white text-sm font-medium flex items-center justify-center align-middle rounded m-auto border-none text-2xl " type="submit">
+<form class="w-2/4 " action="">
+    <input type="text"  maxlength="30"  required="required" placeholder="type your message" class="todo-input h-20 rounded-md mb-8 border-none p-2 text-2xl w-full bg-opacity-25 bg-white placeholder-white placeholder-opacity-30 focus:outline-none text-gray-700 ">
+    <button type="submit" class="todo-button  md:mb-5 mb-4 px-7 py-3 bg-blue-600 hover:bg-blue-700 hover:scale-105 transform ease-in-out duration-150 text-white text-sm font-medium flex items-center justify-center align-middle rounded m-auto border-none text-2xl ">
        Add to list
        <svg xmlns="http://www.w3.org/2000/svg"  class="h-6 ml-2 align-middle" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

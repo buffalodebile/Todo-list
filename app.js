@@ -19,6 +19,13 @@ filterOption.addEventListener("change", filterTodo);
 function addTodo(event) {
     // Prevent form from refreshing
     event.preventDefault();
+    //input control
+    if (todoInput.value === ""){
+    todoInput.style.cssText = "border: solid red 2px;"
+    }
+    else if (todoInput.value !== "") {
+    //clear border
+    todoInput.style.cssText = "border: none"
     // Todo div
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
@@ -27,7 +34,7 @@ function addTodo(event) {
     newTodo.innerText = todoInput.value;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
-    // Add todo to local storadge
+    // Add todo to local storage
     saveLocalTodos(todoInput.value);
     // Done button 
     const completedButton = document.createElement("button");
@@ -44,6 +51,7 @@ function addTodo(event) {
     // Clear todo input value
     todoInput.value = "";
 }
+}
 
 function deleteCheck(e) {
 
@@ -53,6 +61,7 @@ function deleteCheck(e) {
        const todo = item.parentElement;
     //animation 
        todo.classList.add("fall");
+       removeLocalTodos(todo);
         todo.addEventListener("transitionend",  () => {
         todo.remove();
     });
@@ -104,21 +113,78 @@ break;
 
 // ADD local storadge to save the todo's
 
-// function saveLocalTodos(todo) {
+ function saveLocalTodos(todo) {
+// Check todo - do I already have something in there ?
+     let todos;
+     if(localStorage.getItem("todos") === null) {
+         todos = [];
+     }
+     else {
+     todos = JSON.parse(localStorage.getItem("todos"));
+     }
 
-//     let todos;
-//     if(localStorage.getItem("todos") === null) {
-//         todos = [];
-//     }
-//     else {
-//     todos = JSON.parse(localStorage.getItem("todos"));
-//     }
-//     todos.push(todo);
-//     localStorage.setItem("todos", JSON.stringify(todos));
-// }
+     todos.push(todo);
+     localStorage.setItem("todos", JSON.stringify(todos));
+ }
+
+ function getTodos() {
+    // Check todo - do I already have something in there ?
+    let todos;
+    if(localStorage.getItem("todos") === null) {
+        todos = [];
+    }
+    else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+
+
+
+todos.forEach(function(todo){
+
+// Todo div
+const todoDiv = document.createElement("div");
+todoDiv.classList.add("todo");
+//Create li
+const newTodo = document.createElement("li");
+newTodo.innerText = todo;
+newTodo.classList.add("todo-item");
+todoDiv.appendChild(newTodo);
+
+// Done button 
+const completedButton = document.createElement("button");
+completedButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>';
+completedButton.classList.add("complete-btn");
+todoDiv.appendChild(completedButton);
+// Trash button 
+const trashButton = document.createElement("button")
+trashButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>';
+trashButton.classList.add("trash-btn");
+todoDiv.appendChild(trashButton);
+//APPEND TO LIST
+todoList.appendChild(todoDiv);
+
+});
+
+ }
 
   
+ function removeLocalTodos(todo) {
+     // Check todo - do I already have something in there ?
+     let todos;
+     if(localStorage.getItem("todos") === null) {
+         todos = [];
+     }
+     else {
+     todos = JSON.parse(localStorage.getItem("todos"));
+     }
 
+     const todoIndex = todo.children[0].innerText;
+     todos.splice(todos.indexOf(todoIndex), 1);
+     localStorage.setItem("todos", JSON.stringify(todos));
+ }
+
+ 
 
 
 

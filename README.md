@@ -13,8 +13,11 @@ Javascript seem very hard, Im quite confused and not yet ready to complete even 
 
 
 <p>Project started on : 01/11/2021</p>
-<p>Project Completed on : </p>
+<p>Project Completed on : 04/12/2021 </p>
 
-<p>What remains to be done : </p>
+<p>What remains to be done : <br> 
+- better input validation <br>
+- strikethrough text saved in local storadge <br>
+- better responsive design </p>
 
 <p>A live version of the project can be found at this link => <br> https://gracious-agnesi-0cfbc2.netlify.app</p>

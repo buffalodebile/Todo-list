@@ -151,3 +151,20 @@ padding-bottom: 3px !important;
 	 color: white;
 	 transition: all 0.1s;
  }
+
+ [required] {
+	border: 2px solid orange;
+ }
+ @media screen and (max-width: 630px) {
+	
+	.trash-btn, .complete-btn {
+
+		padding: 0.2rem;
+		margin: 0.5rem;
+		}
+
+		.todo {
+			margin: 0.8rem;
+		}
+		
+  }
