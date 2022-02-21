@@ -20,4 +20,4 @@ Javascript seem very hard, Im quite confused and not yet ready to complete even 
 - strikethrough text saved in local storadge <br>
 - better responsive design </p>
 
-<p>A live version of the project can be found at this link => <br> https://gracious-agnesi-0cfbc2.netlify.app</p>
+<p>A live version of the project can be found at this link => <br> https://first-todo-list-js.netlify.app</p>
